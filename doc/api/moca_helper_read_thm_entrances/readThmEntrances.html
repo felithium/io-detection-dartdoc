@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the readThmEntrances function from the read_thm_entrances library, for the Dart programming language.">
+  <title>readThmEntrances function - read_thm_entrances library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">indoor_outdoor_detection_app</a></li>
+    <li><a href="../moca_helper_read_thm_entrances/moca_helper_read_thm_entrances-library.html">read_thm_entrances</a></li>
+    <li class="self-crumb">readThmEntrances function</li>
+  </ol>
+  <div class="self-name">readThmEntrances</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">indoor_outdoor_detection_app</a></li>
+  <li><a href="../moca_helper_read_thm_entrances/moca_helper_read_thm_entrances-library.html">read_thm_entrances</a></li>
+  <li class="self-crumb">readThmEntrances function</li>
+</ol>
+
+
+    <h5>read_thm_entrances library</h5>
+    <ol>
+
+
+
+
+
+  <li class="section-title"><a href="../moca_helper_read_thm_entrances/moca_helper_read_thm_entrances-library.html#functions">Functions</a></li>
+  <li><a href="../moca_helper_read_thm_entrances/readThmEntrances.html">readThmEntrances</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">readThmEntrances</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/latlong2/0.8.0/latlong2/LatLng-class.html">LatLng</a></span>&gt;</span></span>&gt;</span></span>
+<span class="name ">readThmEntrances</span>(<wbr>)
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Helper to read entrances from the buildings of the THM
+Uses the indoor-data-service</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;LatLng&gt;&gt; readThmEntrances() async {
+  var response = await http.get(Uri.parse(&quot;https:&#47;&#47;mocainfo.thm.de&#47;indoor-model&#47;api&#47;v2&#47;buildings&quot;));
+  var body = jsonDecode(response.body);
+  var buildings = body[&quot;buildings&quot;][&quot;content&quot;];
+  List&lt;LatLng&gt; thmDoors = [];
+  for (var building in buildings) {
+    var doors = building[&quot;levels&quot;][0][&quot;doors&quot;];
+    for (var door in doors) {
+      if (door.containsKey(&quot;entrance&quot;)) {
+        var point = door[&quot;point&quot;];
+        thmDoors.add(LatLng(point[&quot;lat&quot;], point[&quot;lng&quot;]));
+      }
+    }
+  }
+  return thmDoors;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    indoor_outdoor_detection_app
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+
+</body>
+
+</html>
+

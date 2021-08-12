@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the wifiStream property from the sensors library, for the Dart programming language.">
+  <title>wifiStream property - sensors library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">indoor_outdoor_detection_app</a></li>
+    <li><a href="../sensors_sensors/sensors_sensors-library.html">sensors</a></li>
+    <li class="self-crumb">wifiStream property</li>
+  </ol>
+  <div class="self-name">wifiStream</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">indoor_outdoor_detection_app</a></li>
+  <li><a href="../sensors_sensors/sensors_sensors-library.html">sensors</a></li>
+  <li class="self-crumb">wifiStream property</li>
+</ol>
+
+
+    <h5>sensors library</h5>
+    <ol>
+
+
+
+
+  <li class="section-title"><a href="../sensors_sensors/sensors_sensors-library.html#properties">Properties</a></li>
+  <li><a href="../sensors_sensors/accelerometerStream.html">accelerometerStream</a></li>
+  <li><a href="../sensors_sensors/cellStream.html">cellStream</a></li>
+  <li><a href="../sensors_sensors/geolocationStream.html">geolocationStream</a></li>
+  <li><a href="../sensors_sensors/gnssStream.html">gnssStream</a></li>
+  <li><a href="../sensors_sensors/gyroscopeStream.html">gyroscopeStream</a></li>
+  <li><a href="../sensors_sensors/lightSensorStream.html">lightSensorStream</a></li>
+  <li><a href="../sensors_sensors/linearAccelerationStream.html">linearAccelerationStream</a></li>
+  <li><a href="../sensors_sensors/magneticFieldStream.html">magneticFieldStream</a></li>
+  <li><a href="../sensors_sensors/orientationStream.html">orientationStream</a></li>
+  <li><a href="../sensors_sensors/proximityStream.html">proximityStream</a></li>
+  <li><a href="../sensors_sensors/rotationVectorStream.html">rotationVectorStream</a></li>
+  <li><a href="../sensors_sensors/weatherStream.html">weatherStream</a></li>
+  <li><a href="../sensors_sensors/wifiStream.html">wifiStream</a></li>
+
+  <li class="section-title"><a href="../sensors_sensors/sensors_sensors-library.html#functions">Functions</a></li>
+  <li><a href="../sensors_sensors/initWeatherStream.html">initWeatherStream</a></li>
+  <li><a href="../sensors_sensors/initWifiStream.html">initWifiStream</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-top-level-property">wifiStream</span> top-level property 
+ 
+</h1></div>
+
+        <section class="multi-line-signature">
+          <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/wifi_iot/0.3.3/wifi_iot/WifiNetwork-class.html">WifiNetwork</a></span>&gt;</span></span>&gt;</span>
+          <span class="name ">wifiStream</span>
+          <div class="features">read / write</div>
+
+        </section>
+        
+<section class="desc markdown">
+  <p>Stream of events which indicate a change in the observed wifi networks</p>
+</section>
+
+        
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Stream&lt;List&lt;WifiNetwork&gt;&gt; wifiStream = WiFiForIoTPlugin.onWifiScanResultReady.map((event) {
+  if (!_wifiStreamInitialized) throw Exception(&quot;The function initWifiStream() was not called!&quot;);
+  return event;
+}).asBroadcastStream();</code></pre>
+</section>
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    indoor_outdoor_detection_app
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+
+</body>
+
+</html>
+
